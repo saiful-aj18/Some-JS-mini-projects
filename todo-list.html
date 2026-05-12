@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Todo List</title>
+</head>
+<body class="bg-gray-900 h-screen justify-center items-center flex">
+
+
+    <div class="bg-cyan-950 text-emerald-400 p-6 rounded shadow w-80">
+        <h3 class="text-xl font-bold mb-4">My Todo List</h3>
+        <div class="flex mb-4">
+            <input type="text" id="input" class="border text-white p-2 flex-1" placeholder="Create New Task...">
+            <button onclick="add()" class="ml-2 px-3 bg-blue-500 text-white cursor-pointer">+</button>
+        </div>
+
+        <ul id="list" class="text-amber-300" > </ul>
+    </div>
+
+    <script>
+
+
+        function add() {
+            const val = document.getElementById("input").value;
+
+            if(!val) return;
+
+            const input_li = document.createElement("input");
+            input_li.className = "mb-2 cursor-pointer"
+            input_li.value = val;
+
+            input_li.onclick = () => {
+                input_li.classList.toggle('line-through')
+                input_li.classList.toggle("text-gray-400")
+            }
+
+            document.getElementById("list").appendChild(input_li)
+            document.getElementById("input").value = ""
+        }
+    </script>
+    
+</body>
+</html>
