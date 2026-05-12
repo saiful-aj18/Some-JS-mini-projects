@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <title>Simple Tabs</title>
+
+  <style>
+    #content {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #content.show {
+      display: block;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gray-950">
+
+  <div class="bg-slate-900 p-6 rounded shadow w-80 text-center">
+
+    <div class="space-x-2 mb-4">
+
+      <button id="a" class="px-3 py-1 bg-emerald-600 text-white cursor-pointer">
+        TAB A
+      </button>
+
+      <button id="b" class="px-3 py-1 bg-blue-600 text-white cursor-pointer">
+        TAB B
+      </button>
+
+      <button id="c" class="px-3 py-1 bg-slate-600 text-white cursor-pointer">
+        TAB C
+      </button>
+
+      <button id="switch" class="bg-red-500 px-3 py-1 text-white rounded">
+        Show/Hide
+      </button>
+
+    </div>
+
+    <p id="content" class="show text-emerald-600 font-bold">
+      Content For TAB A
+    </p>
+
+  </div>
+
+  <script>
+
+    const contentEl = document.getElementById("content");
+
+    const colors = [
+      "text-emerald-600",
+      "text-blue-500",
+      "text-slate-500"
+    ];
+
+    function updateContent(text, colorClass) {
+
+      contentEl.textContent = text;
+
+      
+      contentEl.classList.remove(...colors);
+
+      
+      contentEl.classList.add(colorClass, "font-bold");
+    }
+
+    document.getElementById("a").addEventListener("click", () => {
+      updateContent("Content For TAB A", "text-emerald-600");
+    });
+
+    document.getElementById("b").addEventListener("click", () => {
+      updateContent("Content For TAB B", "text-blue-500");
+    });
+
+    document.getElementById("c").addEventListener("click", () => {
+      updateContent("Content For TAB C", "text-slate-500");
+    });
+
+    document.getElementById("switch").addEventListener("click", () => {
+      contentEl.classList.toggle("show");
+    });
+
+  </script>
+
+</body>
+</html>
