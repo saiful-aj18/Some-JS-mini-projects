@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body class="bg-gray-900 text-center flex justify-center h-screen bg-gray-100">
+    <div class="text-center  ">
+        <p id="count" class="text-3xl text-white  mb-4">1</p>
+
+
+        <input type="number" id="step" value="1" class="border border-gray-400 p-2 w-20 mb-4 text-center text-slate-300  ">
+
+        <div class="space-x-2 "> 
+            <button onclick="change(-1)" class="px-4 py-2 bg-red-500 text-white rounded cursor-pointer">-</button>
+            <button onclick="change(1)" class="px-4 py-2 bg-green-500 text-white rounded cursor-pointer">+</button>
+        </div>
+    </div>
+
+    <script>
+        let count = 1;
+
+        function change(type) {
+            const currentValue = document.getElementById('count').textContent;
+            console.log("current value is ", currentValue)
+            if ( currentValue === "0") {
+                console.log("count is 0 , not proceeding")
+                return;
+            }
+           
+
+            const stepValue = Number(document.getElementById('step').value);
+
+            count += type * stepValue;
+            document.getElementById('count').textContent = count;
+
+            
+        }
+    </script>
+
+</body>
+</html>
