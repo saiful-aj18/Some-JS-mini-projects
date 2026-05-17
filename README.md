@@ -1,4 +1,3 @@
-# Some-JS-mini-projects
 # 🚀 Some JS Mini Projects
 
 A collection of beginner-friendly JavaScript mini projects built using **HTML, CSS, and Vanilla JavaScript**.
